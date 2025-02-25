@@ -14,7 +14,6 @@ E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\MvcMovie.csproj.CoreCompileInputs.cach
 E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\MvcMovie.MvcApplicationPartsAssemblyInfo.cache
 E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\MvcMovie.RazorAssemblyInfo.cache
 E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\MvcMovie.RazorAssemblyInfo.cs
-E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\MvcMovie.sourcelink.json
 E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\scopedcss\bundle\MvcMovie.styles.css
 E:\NET_Core_API\MvcMovie\obj\Debug\net9.0\scopedcss\projectbundle\MvcMovie.bundle.scp.css

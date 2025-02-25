@@ -2,7 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Trang Home - Gửi dữ liệu</h2>
+
+<!-- Sử dụng Tag Helper asp-action để trỏ đến action "Index" -->
+<form asp-action="Index" method="post">
+    <div>
+        <label for="HoTen">Nhập Họ tên</label>
+        <input type="text" name="HoTen" id="HoTen" />
+    </div>
+
+    <div>
+        <label for="Diachi">Nhập Địa Chỉ</label>
+        <input type="text" name="Diachi" id="Diachi" />
+    </div>
+
+    <button type="submit">Gửi</button>
+</form>
+<h1>@ViewBag.Message</h1>

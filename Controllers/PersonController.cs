@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using MvcMovie.Models;
+
 
 namespace MvcMovie.Controllers
 {
@@ -10,10 +12,13 @@ namespace MvcMovie.Controllers
             return View(); // Sẽ trả về file Views/Person/Index.cshtml
         }
 
-        // GET: /Person/Detail
-        public IActionResult Detail()
+        // POST: /Person/Index
+        [HttpPost]
+        public IActionResult Index(Person ps)
         {
-            return View(); // Sẽ trả về file Views/Person/Detail.cshtml
+            string strOutput = "Xin chào " + ps.PersonId + " - " + ps.FullName + " - " + ps.Address;
+            ViewBag.infoPerson = strOutput;
+            return View();
         }
-    }
+    } // Đóng class đúng chỗ
 }

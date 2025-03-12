@@ -1,5 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using MvcMovie.Data;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApplicationDbContext>
+(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") 
+?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
 // Thêm dịch vụ MVC vào container
 builder.Services.AddControllersWithViews();
 
@@ -9,12 +14,7 @@ app.UseRouting();
 
 // Thêm Middleware để xử lý Controller
 app.UseAuthorization();
+app.MapControllers();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-});
 
 app.Run();

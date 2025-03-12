@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Tính BMI";
+}
+
+<h2>Tính Chỉ Số BMI</h2>
+
+<!-- Hiển thị thông báo (nếu có) -->
+@if(ViewBag.ThongBao != null)
+{
+    <p style="color: green">@ViewBag.ThongBao</p>
+}
+
+<form asp-action="Index" method="post">
+    <div>
+        <label for="chieuCao">Chiều cao (m):</label>
+        <input type="number" step="0.01" name="chieuCao" id="chieuCao" required />
+    </div>
+    <div>
+        <label for="canNang">Cân nặng (kg):</label>
+        <input type="number" step="0.01" name="canNang" id="canNang" required />
+    </div>
+
+    <button type="submit">Tính</button>
+</form>

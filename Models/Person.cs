@@ -1,11 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
-using MvcMovie.Models;
+
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 namespace MvcMovie.Models
 {
+    [ Table("Persons")]
     public class Person
     {
+        [Key]
         public int PersonId { get; set; }
-        public string FullName { get; set; }
-        public string Address { get; set; }
+        public  required string FullName { get; set; }
+        public required string Address { get; set;}
     }
 }

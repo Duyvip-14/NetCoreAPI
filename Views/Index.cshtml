@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Tính Điểm Môn Học";
+}
+
+<h2>Tính Điểm Môn Học</h2>
+
+<form method="post">
+    <label for="diemA">Điểm A:</label>
+    <input type="number" step="0.1" name="diemA" required />
+
+    <label for="diemB">Điểm B:</label>
+    <input type="number" step="0.1" name="diemB" required />
+
+    <label for="diemC">Điểm C:</label>
+    <input type="number" step="0.1" name="diemC" required />
+
+    <button type="submit">Tính Điểm</button>
+</form>
+
+@if (ViewBag.ThongBao != null)
+{
+    <p>@ViewBag.ThongBao</p>
+}

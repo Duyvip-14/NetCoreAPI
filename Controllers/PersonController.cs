@@ -16,7 +16,7 @@ namespace MvcMovie.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await _context.Person.ToListAsync();
+            var model = await _context.Persons.ToListAsync();
             return View(model);
         }
 
@@ -38,14 +38,14 @@ namespace MvcMovie.Controllers
             return View(person);
         }
 
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null || _context.Person == null)
+            if (_context.Persons == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Person.FindAsync(id);
+            var person = await _context.Persons.FindAsync(id);
             if (person == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace MvcMovie.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("PersonId,FullName,Address")] Person person)
+        public async Task<IActionResult> Edit(int id, [Bind("PersonId,FullName,Address")] Person person)
         {
             if (id != person.PersonId)
             {
@@ -85,14 +85,14 @@ namespace MvcMovie.Controllers
             return View(person);
         }
 
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null || _context.Person == null)
+            if (_context.Persons == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Person.FirstOrDefaultAsync(m => m.PersonId == id);
+            var person = await _context.Persons.FirstOrDefaultAsync(m => m.PersonId == id);
             if (person == null)
             {
                 return NotFound();
@@ -103,25 +103,64 @@ namespace MvcMovie.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Person == null)
+            if (_context.Persons == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Person' is null.");
+                return Problem("Entity set 'ApplicationDbContext.Persons' is null.");
             }
-            var person = await _context.Person.FindAsync(id);
+
+            var person = await _context.Persons.FindAsync(id);
             if (person != null)
             {
-                _context.Person.Remove(person);
+                _context.Persons.Remove(person);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PersonExists(string id)
+        private bool PersonExists(int id)
         {
-            return (_context.Person?.Any(e => e.PersonId == id)).GetValueOrDefault();
+            return (_context.Persons?.Any(e => e.PersonId == id)).GetValueOrDefault();
+        }
+
+        // ========================= Upload =========================
+
+        public IActionResult Upload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file != null && file.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                var filePath = Path.Combine(uploadsFolder, file.FileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                ViewBag.Message = "Upload thành công!";
+            }
+            else
+            {
+                ViewBag.Message = "Vui lòng chọn file để upload.";
+            }
+
+            return View();
         }
     }
 }
+

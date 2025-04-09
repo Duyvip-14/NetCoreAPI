@@ -11,7 +11,8 @@ namespace MvcMovie.Data
         {
         }
 
-        public DbSet<Person> Persons { get; set; } // Kiểm tra lại tên bảng
+        public DbSet<Person> Person { get; set; }   // dòng mới
+
     }
 }
 

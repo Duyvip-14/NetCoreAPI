@@ -1,0 +1,15 @@
+E:\NET_Core_API\NewApp\bin\Debug\net9.0\NewApp.exe
+E:\NET_Core_API\NewApp\bin\Debug\net9.0\NewApp.deps.json
+E:\NET_Core_API\NewApp\bin\Debug\net9.0\NewApp.runtimeconfig.json
+E:\NET_Core_API\NewApp\bin\Debug\net9.0\NewApp.dll
+E:\NET_Core_API\NewApp\bin\Debug\net9.0\NewApp.pdb
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.AssemblyInfoInputs.cache
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.AssemblyInfo.cs
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.csproj.CoreCompileInputs.cache
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.sourcelink.json
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.dll
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\refint\NewApp.dll
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.pdb
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\NewApp.genruntimeconfig.cache
+E:\NET_Core_API\NewApp\obj\Debug\net9.0\ref\NewApp.dll
